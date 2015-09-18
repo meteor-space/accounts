@@ -13,12 +13,14 @@ Package.onUse(function(api) {
   api.use([
     'coffeescript',
     'mongo',
+    'accounts-password',
     'check',
     'space:event-sourcing@1.2.3',
   ]);
 
   api.addFiles([
     'source/server.coffee',
+    'source/meteor-users-dao.coffee',
   ], 'server');
 
   api.addFiles([
@@ -32,13 +34,15 @@ Package.onTest(function(api) {
   api.use([
     'coffeescript',
     'mongo',
+    'accounts-password',
     'space:accounts',
     'practicalmeteor:munit@2.1.4',
     'space:testing@1.4.3'
   ]);
 
   api.addFiles([
-    'tests/test-app.coffee'
+    'tests/test-app.coffee',
+    'tests/meteor-users-dao.unit.coffee'
   ], 'server');
 
 });
