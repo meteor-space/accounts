@@ -19,21 +19,13 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'source/server.coffee',
+    'source/server/module.coffee',
+    'source/server/commands.coffee',
+    'source/server/events.coffee',
+    // USERS
+    'source/server/users/user.coffee',
+    'source/server/users/users-router.coffee'
   ], 'server');
-
-  api.addFiles([
-    'source/commands.coffee'
-  ]);
-
-  api.addFiles([
-    'source/meteor-users-dao.coffee',
-    'source/registration-controller.coffee'
-  ], 'server');
-
-  api.addFiles([
-    'source/client.coffee',
-  ], 'client');
 
 });
 
