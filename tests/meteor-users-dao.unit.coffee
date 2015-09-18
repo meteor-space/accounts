@@ -3,6 +3,7 @@ describe.server 'Space.accounts.MeteorUsersDAO', ->
   beforeEach ->
     @usersDao = new Space.accounts.MeteorUsersDAO()
     @usersDao.meteor = Meteor
+    @usersDao.accounts = Accounts
     Meteor.users.remove {}
     Accounts.createUser({ username: 'testUsername1', password: 'testPassword1'})
     Accounts.createUser({ username: 'testUsername2', password: 'testPassword2'})
@@ -15,3 +16,7 @@ describe.server 'Space.accounts.MeteorUsersDAO', ->
 
     it 'returns all users', ->
       expect(@usersDao.all()).to.deep.equal(Meteor.users.find())
+
+    it 'creates a user', ->
+      newUserId = @usersDao.createUser({ guid: '111', username: 'testUsername4', email: 'test@email.com', password: 'testPassword4'})
+      expect(Meteor.users.find({_id: newUserId}).to.equal(newUserId))

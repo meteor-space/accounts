@@ -20,7 +20,15 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'source/server.coffee',
+  ], 'server');
+
+  api.addFiles([
+    'source/commands.coffee'
+  ]);
+
+  api.addFiles([
     'source/meteor-users-dao.coffee',
+    'source/registration-controller.coffee'
   ], 'server');
 
   api.addFiles([
