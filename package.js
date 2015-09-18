@@ -1,0 +1,44 @@
+Package.describe({
+  name: 'space:accounts',
+  version: '0.1.0',
+  summary: 'Accounts module for Space applications',
+  git: 'https://github.com/meteor-space/accounts.git',
+  documentation: 'README.md'
+});
+
+Package.onUse(function(api) {
+
+  api.versionsFrom('1.0');
+
+  api.use([
+    'coffeescript',
+    'mongo',
+    'check',
+    'space:event-sourcing@1.2.3',
+  ]);
+
+  api.addFiles([
+    'source/server.coffee',
+  ], 'server');
+
+  api.addFiles([
+    'source/client.coffee',
+  ], 'client');
+
+});
+
+Package.onTest(function(api) {
+
+  api.use([
+    'coffeescript',
+    'mongo',
+    'space:accounts',
+    'practicalmeteor:munit@2.1.4',
+    'space:testing@1.4.3'
+  ]);
+
+  api.addFiles([
+    'tests/test-app.coffee'
+  ], 'server');
+
+});
