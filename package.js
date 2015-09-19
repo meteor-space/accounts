@@ -15,7 +15,7 @@ Package.onUse(function(api) {
     'mongo',
     'accounts-password',
     'check',
-    'space:event-sourcing@1.3.0',
+    'space:event-sourcing@1.3.1',
   ]);
 
   api.addFiles([
