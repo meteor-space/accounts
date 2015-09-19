@@ -2,6 +2,7 @@ Space.messaging.define Space.messaging.Event, 'Space.accounts',
 
   UserCreated: {
     sourceId: Guid
+    timestamp: Date
     username: String
     email: String # TODO: Update to Email VO
     password: String
@@ -9,4 +10,6 @@ Space.messaging.define Space.messaging.Event, 'Space.accounts',
 
   UserLoggedIn: {
     sourceId: Guid
+    timestamp: Date
+    via: String
   }
