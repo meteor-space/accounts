@@ -16,6 +16,7 @@ Package.onUse(function(api) {
     'accounts-base',
     'accounts-password',
     'check',
+    'space:vo-user@0.2.0',
     'space:event-sourcing@1.3.3',
   ]);
 

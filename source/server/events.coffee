@@ -3,9 +3,9 @@ Space.messaging.define Space.messaging.Event, 'Space.accounts',
   UserCreated: {
     sourceId: Guid
     timestamp: Date
-    username: String
-    email: String # TODO: Update to Email VO
-    password: String
+    username: Username
+    email: EmailAddress # TODO: Update to Email VO
+    password: Password
   }
 
   UserLoggedIn: {
