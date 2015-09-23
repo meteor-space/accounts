@@ -29,21 +29,3 @@ Package.onUse(function(api) {
   ], 'server');
 
 });
-
-Package.onTest(function(api) {
-
-  api.use([
-    'coffeescript',
-    'mongo',
-    'accounts-password',
-    'space:accounts',
-    'practicalmeteor:munit@2.1.4',
-    'space:testing@1.4.3'
-  ]);
-
-  api.addFiles([
-    'tests/test-app.coffee',
-    'tests/meteor-users-dao.unit.coffee'
-  ], 'server');
-
-});
