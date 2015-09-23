@@ -8,14 +8,15 @@ Package.describe({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom('1.0');
+  api.versionsFrom('METEOR@1.2.0.1');
 
   api.use([
     'coffeescript',
     'mongo',
+    'accounts-base',
     'accounts-password',
     'check',
-    'space:event-sourcing@1.3.1',
+    'space:event-sourcing@1.3.3',
   ]);
 
   api.addFiles([
