@@ -13,3 +13,10 @@ Space.messaging.define Space.messaging.Event, 'Space.accounts',
     timestamp: Date
     via: String
   }
+
+  UserLoginFailed: {
+    sourceId: Guid
+    timestamp: Date
+    via: String
+    error: String
+  }
