@@ -1,7 +1,8 @@
+
 Package.describe({
   name: 'space:accounts',
-  version: '0.1.0',
   summary: 'Accounts module for Space applications',
+  version: '0.1.0',
   git: 'https://github.com/meteor-space/accounts.git',
   documentation: 'README.md'
 });
