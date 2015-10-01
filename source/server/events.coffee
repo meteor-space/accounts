@@ -4,7 +4,7 @@ Space.messaging.define Space.messaging.Event, 'Space.accounts',
     sourceId: Guid
     timestamp: Date
     username: Username
-    email: EmailAddress # TODO: Update to Email VO
+    email: EmailAddress
     password: Password
   }
 

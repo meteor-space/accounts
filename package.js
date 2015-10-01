@@ -31,3 +31,20 @@ Package.onUse(function(api) {
   ], 'server');
 
 });
+
+Package.onTest(function(api) {
+
+  api.use([
+    'coffeescript',
+    'mongo',
+    'space:accounts',
+    'space:vo-user@0.2.0',
+    'practicalmeteor:munit@2.1.4',
+    'space:testing@1.4.4',
+  ]);
+
+  api.addFiles([
+    'tests/users/users.unit.coffee'
+  ], 'server');
+
+});
