@@ -2,14 +2,14 @@
 Package.describe({
   name: 'space:accounts',
   summary: 'Accounts module for Space applications',
-  version: '0.1.0',
+  version: '0.1.1',
   git: 'https://github.com/meteor-space/accounts.git',
   documentation: 'README.md'
 });
 
 Package.onUse(function(api) {
 
-  api.versionsFrom('METEOR@1.2.0.1');
+  api.versionsFrom('METEOR@1.0');
 
   api.use([
     'coffeescript',
@@ -28,6 +28,23 @@ Package.onUse(function(api) {
     // USERS
     'source/server/users/user.coffee',
     'source/server/users/users-router.coffee'
+  ], 'server');
+
+});
+
+Package.onTest(function(api) {
+
+  api.use([
+    'coffeescript',
+    'mongo',
+    'space:accounts',
+    'space:vo-user@0.2.0',
+    'practicalmeteor:munit@2.1.4',
+    'space:testing@1.4.4',
+  ]);
+
+  api.addFiles([
+    'tests/users/users.unit.coffee'
   ], 'server');
 
 });

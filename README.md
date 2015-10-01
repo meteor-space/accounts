@@ -1,4 +1,4 @@
-# space:accounts
+# space:accounts [![Build Status](https://travis-ci.org/meteor-space/accounts.svg)](https://travis-ci.org/meteor-space/accounts)
 Accounts module for Space applications.
 
 ## Documentation
