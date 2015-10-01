@@ -2,12 +2,15 @@
 describe 'Space.accounts.User', ->
 
   beforeEach ->
+    @clock = sinon.useFakeTimers('Date')
     @createUser = new Space.accounts.CreateUser {
       targetId: new Guid
       username: new Username('testUsername')
       email: new EmailAddress('test@email.com')
       password: new Password('123')
     }
+
+  afterEach -> @clock.restore()
 
   describe 'creating users', ->
 
