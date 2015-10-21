@@ -17,8 +17,8 @@ Package.onUse(function(api) {
     'accounts-base',
     'accounts-password',
     'check',
-    'space:vo-user@0.2.0',
-    'space:event-sourcing@1.3.3',
+    'space:vo-user@0.2.1',
+    'space:event-sourcing@2.1.0',
   ]);
 
   api.addFiles([
@@ -37,14 +37,16 @@ Package.onTest(function(api) {
   api.use([
     'coffeescript',
     'mongo',
+    'underscore',
     'space:accounts',
     'space:vo-user@0.2.0',
     'practicalmeteor:munit@2.1.4',
-    'space:testing@1.4.4',
+    'space:testing@1.5.0',
   ]);
 
   api.addFiles([
-    'tests/users/users.unit.coffee'
+    'tests/test-app.coffee',
+    'tests/users/users.test.coffee'
   ], 'server');
 
 });
