@@ -4,7 +4,7 @@ Space.messaging.define Space.messaging.Command, 'Space.accounts',
   CreateUser: {
     targetId: Guid
     username: Username
-    email: EmailAddress # TODO: Update to Email VO
+    email: EmailAddress
     password: Password
   }
 
