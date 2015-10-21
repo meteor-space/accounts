@@ -37,6 +37,7 @@ Package.onTest(function(api) {
   api.use([
     'coffeescript',
     'mongo',
+    'underscore',
     'space:accounts',
     'space:vo-user@0.2.0',
     'practicalmeteor:munit@2.1.4',
@@ -44,7 +45,8 @@ Package.onTest(function(api) {
   ]);
 
   api.addFiles([
-    'tests/users/users.unit.coffee'
+    'tests/test-app.coffee',
+    'tests/users/users.test.coffee'
   ], 'server');
 
 });
