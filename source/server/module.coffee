@@ -2,8 +2,8 @@ class Space.accounts extends Space.Module
 
   @publish this, 'Space.accounts'
 
-  RequiredModules: ['Space.eventSourcing']
+  requiredModules: ['Space.eventSourcing']
 
-  Singletons: [
+  singletons: [
     'Space.accounts.UsersRouter'
   ]

@@ -1,9 +1,9 @@
 class Space.accounts.UsersRouter extends Space.eventSourcing.Router
 
-  Aggregate: Space.accounts.User
-  InitializingCommand: Space.accounts.CreateUser
+  aggregate: Space.accounts.User
+  initializingCommand: Space.accounts.CreateUser
 
-  RouteCommands: [
+  routeCommands: [
     Space.accounts.RegisterSuccessfulLogin
     Space.accounts.RegisterFailedLogin
   ]
