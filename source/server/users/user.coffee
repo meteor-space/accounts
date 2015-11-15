@@ -22,3 +22,5 @@ class Space.accounts.User extends Space.eventSourcing.Aggregate
         via: command.type
         error: command.error
       }
+
+Space.accounts.User.registerSnapshotType 'Space.accounts.UserSnapshot'
