@@ -31,7 +31,10 @@ Space.Object.extend(Space.accounts, 'MeteorUsersService', {
   _createMeteorUser(event) {
     let userData = {
       userId: event.sourceId,
-      password: event.password.toString()
+      password: {
+        digest: event.password.toString(),
+        algorithm: "sha-256"
+      }
     };
     if (event.username) userData.username = event.username.toString();
     if (event.email) userData.username = event.email.toString();
