@@ -13,14 +13,11 @@ describe 'Space.accounts.User', ->
     @type = 'password'
     @error = "Login attempt failed"
 
-    @app = new Space.accounts.TestApp()
-    @app.start()
-
   describe 'creating users', ->
 
     it 'generates the user create event', ->
-
-      @app.given(
+      Space.accounts.test(Space.accounts.User)
+      .given(
         new CreateUser _.extend {}, @data, {
           targetId: @userId
         }
@@ -29,19 +26,17 @@ describe 'Space.accounts.User', ->
           new UserCreated _.extend {}, @data, {
             sourceId: @userId
             version: 1
-            timestamp: new Date()
           }
         ])
 
   describe 'authorising users', ->
 
     it 'publishes user logged in events', ->
-
-      @app.given([
+      Space.accounts.test(Space.accounts.User)
+      .given([
         new UserCreated _.extend {}, @data, {
           sourceId: @userId
           version: 1
-          timestamp: new Date()
         }
       ])
       .when([
@@ -60,12 +55,11 @@ describe 'Space.accounts.User', ->
         ])
 
     it 'publishes user login error events', ->
-
-      @app.given([
+      Space.accounts.test(Space.accounts.User)
+      .given([
         new UserCreated _.extend {}, @data, {
           sourceId: @userId
           version: 1
-          timestamp: new Date()
         }
       ])
       .when([
