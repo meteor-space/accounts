@@ -1,16 +1,8 @@
 class Space.accounts.Account extends Space.eventSourcing.Aggregate
 
-  commandMap: ->
-    'Space.accounts.CreateAccount': (command) ->
-      @record new Space.accounts.AccountCreated {
-        sourceId: @getId()
-        registrationId: command.registrationId
-        userId: command.userId
-        timestamp: new Date()
-        username: command.username ? null
-        email: command.email ? null
-        password: command.password
-      }
+  commandMap: -> {
+    'Space.accounts.CreateAccount': @_createAccount
+
     'Space.accounts.RegisterSuccessfulLogin': (command) ->
       @record new Space.accounts.AccountLoggedIn {
         sourceId: @getId()
@@ -24,5 +16,9 @@ class Space.accounts.Account extends Space.eventSourcing.Aggregate
         via: command.type
         error: command.error
       }
+  }
+
+  _createAccount: (command) ->
+    @record new Space.accounts.AccountCreated @_eventPropsFromCommand(command)
 
 Space.accounts.Account.registerSnapshotType 'Space.accounts.AccountSnapshot'
