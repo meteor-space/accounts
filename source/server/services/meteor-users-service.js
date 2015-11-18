@@ -1,8 +1,7 @@
 Space.Object.extend(Space.accounts, 'MeteorUsersService', {
 
   dependencies: {
-    accounts: 'Accounts',
-    usersCollection: 'Meteor.users'
+    accounts: 'Accounts'
   },
 
   mixin: [
