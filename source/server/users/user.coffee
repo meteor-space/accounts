@@ -5,8 +5,8 @@ class Space.accounts.User extends Space.eventSourcing.Aggregate
       @record new Space.accounts.UserCreated {
         sourceId: @getId()
         timestamp: new Date()
-        username: command.username
-        email: command.email
+        username: command.username ? null
+        email: command.email ? null
         password: command.password
       }
     'Space.accounts.RegisterSuccessfulLogin': (command) ->

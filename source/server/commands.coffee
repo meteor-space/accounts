@@ -3,8 +3,8 @@ Space.messaging.define Space.messaging.Command, 'Space.accounts',
 
   CreateUser: {
     targetId: Guid
-    username: Username
-    email: EmailAddress
+    username: Match.OneOf(Username, null)
+    email: Match.OneOf(EmailAddress, null)
     password: Password
   }
 

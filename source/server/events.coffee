@@ -1,8 +1,8 @@
 Space.messaging.define Space.messaging.Event, 'Space.accounts',
 
   UserCreated: {
-    username: Username
-    email: EmailAddress
+    username: Match.OneOf(Username, null)
+    email: Match.OneOf(EmailAddress, null)
     password: Password
   }
 
