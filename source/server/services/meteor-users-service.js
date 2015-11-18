@@ -37,7 +37,7 @@ Space.Object.extend(Space.accounts, 'MeteorUsersService', {
       }
     };
     if (event.username) userData.username = event.username.toString();
-    if (event.email) userData.username = event.email.toString();
+    if (event.email) userData.email = event.email.toString();
     try {
       this.accounts.createUser(userData);
     } catch (error) {
