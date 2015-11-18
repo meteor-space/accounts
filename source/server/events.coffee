@@ -30,7 +30,7 @@ Space.messaging.define Space.messaging.Event, 'Space.accounts',
   }
 
   AccountCreated: {
-    registrationId: Guid
+    registrationId: Match.Optional(Guid)
     userId: Guid
     username: Match.OneOf(Username, null)
     email: Match.OneOf(EmailAddress, null)
