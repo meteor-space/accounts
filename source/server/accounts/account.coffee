@@ -9,13 +9,9 @@ class Space.accounts.Account extends Space.eventSourcing.Aggregate
         timestamp: new Date()
         via: command.type
       }
+      
     'Space.accounts.RegisterFailedLogin': (command) ->
-      @record new Space.accounts.AccountLoginFailed {
-        sourceId: @getId()
-        timestamp: new Date()
-        via: command.type
-        error: command.error
-      }
+      @record new Space.accounts.AccountLoginFailed @_eventPropsFromCommand(command)
   }
 
   _createAccount: (command) ->
