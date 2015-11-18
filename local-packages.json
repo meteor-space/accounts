@@ -1,0 +1,14 @@
+{
+  "space:base": {
+    "path": "/Users/dominik/work/projects/opensource/meteor/space/base"
+  },
+  "space:messaging": {
+    "path": "/Users/dominik/work/projects/opensource/meteor/space/messaging"
+  },
+  "space:event-sourcing": {
+    "path": "/Users/dominik/work/projects/opensource/meteor/space/event-sourcing"
+  },
+  "space:testing": {
+    "path": "/Users/dominik/work/projects/opensource/meteor/space/testing"
+  }
+}

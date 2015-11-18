@@ -1,20 +1,31 @@
 
 Space.messaging.define Space.messaging.Command, 'Space.accounts',
 
-  CreateUser: {
-    targetId: Guid
+  Register: {
+    targetId: Guid # for Space.accounts.Registration
+    accountId: Guid
+    userId: Guid
+    username: Match.OneOf(Username, null)
+    email: Match.OneOf(EmailAddress, null)
+    password: Password
+  }
+
+  CreateAccount: {
+    targetId: Guid # for Space.accounts.Account
+    registrationId: Guid
+    userId: Guid
     username: Match.OneOf(Username, null)
     email: Match.OneOf(EmailAddress, null)
     password: Password
   }
 
   RegisterSuccessfulLogin: {
-    targetId: Guid
+    targetId: Guid # for Space.accounts.Account
     type: String
   }
 
   RegisterFailedLogin: {
-    targetId: Guid
+    targetId: Guid # for Space.accounts.Account
     type: String
     error: String
   }
