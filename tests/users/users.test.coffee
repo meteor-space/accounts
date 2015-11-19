@@ -43,7 +43,7 @@ describe 'Space.accounts.Account', ->
       .when([
         new RegisterSuccessfulLogin({
           targetId: @accountId
-          type: @type
+          loginService: @type
         })
       ])
       .expect([
@@ -51,7 +51,7 @@ describe 'Space.accounts.Account', ->
           sourceId: @accountId
           version: 2
           timestamp: new Date()
-          via: @type
+          loginService: @type
         })
       ])
 
@@ -61,7 +61,7 @@ describe 'Space.accounts.Account', ->
       .when([
         new RegisterFailedLogin {
           targetId: @accountId
-          type: @type
+          loginService: @type
           error: @error
         }
       ])
@@ -70,7 +70,7 @@ describe 'Space.accounts.Account', ->
           sourceId: @accountId
           version: 2
           timestamp: new Date()
-          via: @type
+          loginService: @type
           error: @error
         }
       ])

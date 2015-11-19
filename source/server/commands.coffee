@@ -21,11 +21,11 @@ Space.messaging.define Space.messaging.Command, 'Space.accounts',
 
   RegisterSuccessfulLogin: {
     targetId: Guid # for Space.accounts.Account
-    type: String
+    loginService: String
   }
 
   RegisterFailedLogin: {
     targetId: Guid # for Space.accounts.Account
-    type: String
+    loginService: String
     error: String
   }

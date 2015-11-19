@@ -38,10 +38,10 @@ Space.messaging.define Space.messaging.Event, 'Space.accounts',
   }
 
   AccountLoggedIn: {
-    via: String
+    loginService: String
   }
 
   AccountLoginFailed: {
-    via: String
+    loginService: String
     error: String
   }
