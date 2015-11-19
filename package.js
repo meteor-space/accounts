@@ -52,7 +52,7 @@ Package.onTest(function(api) {
   ]);
 
   api.addFiles([
-    'tests/users/users.test.coffee'
+    'tests/accounts/accounts.test.coffee'
   ], 'server');
 
 });
