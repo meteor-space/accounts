@@ -5,5 +5,7 @@ class Space.accounts extends Space.Module
   requiredModules: ['Space.eventSourcing']
 
   singletons: [
-    'Space.accounts.UsersRouter'
+    'Space.accounts.MeteorUsersService'
+    'Space.accounts.AccountsRouter'
+    'Space.accounts.RegistrationsRouter'
   ]

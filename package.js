@@ -17,6 +17,8 @@ Package.onUse(function(api) {
     'accounts-base',
     'accounts-password',
     'check',
+    'ecmascript',
+    'underscore',
     'space:vo-user@0.2.1',
     'space:event-sourcing@2.1.0'
   ]);
@@ -25,9 +27,14 @@ Package.onUse(function(api) {
     'source/server/module.coffee',
     'source/server/commands.coffee',
     'source/server/events.coffee',
+    // SERVICES
+    'source/server/services/meteor-users-service.js',
+    // REGISTRATION
+    'source/server/registration/registration.js',
+    'source/server/registration/registration-router.js',
     // USERS
-    'source/server/users/user.coffee',
-    'source/server/users/users-router.coffee'
+    'source/server/accounts/account.coffee',
+    'source/server/accounts/accounts-router.coffee'
   ], 'server');
 
 });
@@ -41,11 +48,11 @@ Package.onTest(function(api) {
     'space:testing@2.0.1',
     'space:accounts',
     'space:vo-user@0.2.0',
-    'practicalmeteor:munit@2.1.5',
+    'practicalmeteor:munit@2.1.5'
   ]);
 
   api.addFiles([
-    'tests/users/users.test.coffee'
+    'tests/accounts/accounts.test.coffee'
   ], 'server');
 
 });

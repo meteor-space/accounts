@@ -1,16 +1,45 @@
 Space.messaging.define Space.messaging.Event, 'Space.accounts',
 
-  UserCreated: {
-    username: Username
-    email: EmailAddress
+  RegistrationInitiated: {
+    accountId: Guid
+    userId: Guid
+    username: Match.OneOf(Username, null)
+    email: Match.OneOf(EmailAddress, null)
     password: Password
   }
 
-  UserLoggedIn: {
-    via: String
+  RegistrationFailed: {
+    error: String
   }
 
-  UserLoginFailed: {
-    via: String
+  RegistrationCompleted: {}
+
+  UserRegistered: {
+    userId: Guid
+  }
+
+  UserCreated: {
+    userId: Guid
+  }
+
+  UserCreationFailed: {
+    userId: Guid
+    error: String
+  }
+
+  AccountCreated: {
+    registrationId: Match.Optional(Guid)
+    userId: Guid
+    username: Match.OneOf(Username, null)
+    email: Match.OneOf(EmailAddress, null)
+    password: Password
+  }
+
+  AccountLoggedIn: {
+    loginService: String
+  }
+
+  AccountLoginFailed: {
+    loginService: String
     error: String
   }
