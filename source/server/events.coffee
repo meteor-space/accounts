@@ -19,12 +19,10 @@ Space.messaging.define Space.messaging.Event, 'Space.accounts',
   }
 
   UserCreated: {
-    registrationId: Guid,
     userId: Guid
   }
 
   UserCreationFailed: {
-    registrationId: Guid,
     userId: Guid
     error: String
   }

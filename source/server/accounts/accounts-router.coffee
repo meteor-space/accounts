@@ -1,4 +1,4 @@
-class Space.accounts.AccountsRouter extends Space.eventSourcing.Router
+class Space.accounts.AccountsRouter extends Space.eventSourcing.AggregateRouter
 
   aggregate: Space.accounts.Account
   initializingCommand: Space.accounts.CreateAccount

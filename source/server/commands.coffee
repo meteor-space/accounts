@@ -12,7 +12,6 @@ Space.messaging.define Space.messaging.Command, 'Space.accounts',
 
   CreateAccount: {
     targetId: Guid # for Space.accounts.Account
-    registrationId: Match.Optional(Guid)
     userId: Guid
     username: Match.OneOf(Username, null)
     email: Match.OneOf(EmailAddress, null)

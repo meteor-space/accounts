@@ -20,6 +20,8 @@ Space.eventSourcing.Process.extend(Space.accounts, `Registration`, {
     error: Match.OneOf(String, null)
   },
 
+  eventCorrelationProperty: 'accountRegistrationId',
+
   commandMap() {
     return {
       'Space.accounts.Register': this._register
@@ -55,7 +57,6 @@ Space.eventSourcing.Process.extend(Space.accounts, `Registration`, {
 
     this.trigger(new Space.accounts.CreateAccount({
       targetId: this.accountId,
-      registrationId: this.getId(),
       userId: this.userId,
       username: this.username,
       email: this.email,

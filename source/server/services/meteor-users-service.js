@@ -29,7 +29,7 @@ Space.Object.extend(Space.accounts, 'MeteorUsersService', {
 
   _createMeteorUser(event) {
     let userData = {
-      userId: event.sourceId,
+      userId: event.userId,
       password: {
         digest: event.password.toString(),
         algorithm: "sha-256"
@@ -37,19 +37,20 @@ Space.Object.extend(Space.accounts, 'MeteorUsersService', {
     };
     if (event.username) userData.username = event.username.toString();
     if (event.email) userData.email = event.email.toString();
+    let meta = _.extend(event.meta, { accountRegistrationId: event.sourceId });
     try {
       this.accounts.createUser(userData);
+      this.publish(new Space.accounts.UserCreated({
+        userId: event.userId,
+        meta: meta
+      }));
     } catch (error) {
       this.publish(new Space.accounts.UserCreationFailed({
-        registrationId: event.sourceId,
-        userId: event.sourceId,
-        error: error.message
+        userId: event.userId,
+        error: error.message,
+        meta: meta
       }));
     }
-    this.publish(new Space.accounts.UserCreated({
-      registrationId: event.sourceId,
-      userId: event.sourceId
-    }));
   }
 
 });

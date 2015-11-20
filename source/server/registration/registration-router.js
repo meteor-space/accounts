@@ -1,14 +1,12 @@
-Space.eventSourcing.Router.extend(Space.accounts, 'RegistrationsRouter', {
+Space.eventSourcing.ProcessRouter.extend(Space.accounts, 'RegistrationsRouter', {
 
-  aggregate: Space.accounts.Registration,
-  initializingCommand: Space.accounts.Register,
+  process: Space.accounts.Registration,
+  initializingMessage: Space.accounts.Register,
 
   routeEvents: [
     Space.accounts.UserCreated,
     Space.accounts.UserCreationFailed,
     Space.accounts.AccountCreated
-  ],
-
-  eventCorrelationProperty: 'registrationId'
+  ]
 
 });
