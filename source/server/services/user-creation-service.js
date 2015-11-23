@@ -1,4 +1,4 @@
-Space.Object.extend(Space.accounts, 'MeteorUsersService', {
+Space.Object.extend(Space.accounts, 'UserCreationService', {
 
   dependencies: {
     accounts: 'Accounts'
@@ -11,8 +11,8 @@ Space.Object.extend(Space.accounts, 'MeteorUsersService', {
 
   statics: {
     handleUserCreation(options, user) {
-      // The options come from the Meteor.createUser call -> assign the guid
-      user._id = new Guid(options.userId).toString();
+      // Assign guids as user ids
+      user._id = new Guid().toString();
       return user;
     }
   },
@@ -23,13 +23,13 @@ Space.Object.extend(Space.accounts, 'MeteorUsersService', {
 
   eventSubscriptions() {
     return [{
-      'Space.accounts.RegistrationInitiated': this._createMeteorUser
+      'Space.accounts.SignupInitiated': this._createMeteorUser,
+      'Space.accounts.SignupRetried': this._createMeteorUser
     }];
   },
 
   _createMeteorUser(event) {
     let userData = {
-      userId: event.userId,
       password: {
         digest: event.password.toString(),
         algorithm: "sha-256"
@@ -37,7 +37,7 @@ Space.Object.extend(Space.accounts, 'MeteorUsersService', {
     };
     if (event.username) userData.username = event.username.toString();
     if (event.email) userData.email = event.email.toString();
-    let meta = _.extend(event.meta, { accountRegistrationId: event.sourceId });
+    let meta = { signupId: event.sourceId };
     try {
       this.accounts.createUser(userData);
       this.publish(new Space.accounts.UserCreated({

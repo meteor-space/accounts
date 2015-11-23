@@ -1,21 +1,19 @@
 Space.messaging.define Space.messaging.Event, 'Space.accounts',
 
-  RegistrationInitiated: {
-    accountId: Guid
+  # ======= REGISTRATION ========
+
+  SignupInitiated: {
     userId: Guid
     username: Match.OneOf(Username, null)
     email: Match.OneOf(EmailAddress, null)
-    password: Password
+    password: Match.OneOf(Password, null)
   }
 
-  RegistrationFailed: {
-    error: String
-  }
-
-  RegistrationCompleted: {}
-
-  UserRegistered: {
+  SignupRetried: {
     userId: Guid
+    username: Match.OneOf(Username, null)
+    email: Match.OneOf(EmailAddress, null)
+    password: Match.OneOf(Password, null)
   }
 
   UserCreated: {
@@ -27,19 +25,21 @@ Space.messaging.define Space.messaging.Event, 'Space.accounts',
     error: String
   }
 
-  AccountCreated: {
-    registrationId: Match.Optional(Guid)
-    userId: Guid
-    username: Match.OneOf(Username, null)
-    email: Match.OneOf(EmailAddress, null)
-    password: Password
+  SignupFailed: {
+    error: String
   }
 
-  AccountLoggedIn: {
+  SignupCompleted: {}
+
+  # ======= LOGIN / LOGOUT ========
+
+  UserLoggedIn: {
+    userId: String
     loginService: String
   }
 
-  AccountLoginFailed: {
+  UserLoginFailed: {
+    userId: String
     loginService: String
     error: String
   }

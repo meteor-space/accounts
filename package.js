@@ -23,18 +23,21 @@ Package.onUse(function(api) {
     'space:event-sourcing@2.1.0'
   ]);
 
+  api.addFiles(['source/client/namespace.js'], 'client');
+  api.addFiles(['source/server/module.coffee'], 'server');
+
   api.addFiles([
-    'source/server/module.coffee',
-    'source/server/commands.coffee',
+    'source/shared/api-commands.coffee'
+  ]);
+
+  api.addFiles([
     'source/server/events.coffee',
     // SERVICES
-    'source/server/services/meteor-users-service.js',
-    // REGISTRATION
-    'source/server/registration/registration.js',
-    'source/server/registration/registration-router.js',
-    // USERS
-    'source/server/accounts/account.coffee',
-    'source/server/accounts/accounts-router.coffee'
+    'source/server/services/user-creation-service.js',
+    'source/server/services/login-service.js',
+    // SIGNUP
+    'source/server/signup/signup.js',
+    'source/server/signup/signup-router.js'
   ], 'server');
 
 });
