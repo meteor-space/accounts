@@ -5,7 +5,7 @@
   },
   "space:event-sourcing": {
     "git": "https://github.com/meteor-space/event-sourcing.git",
-    "branch": "feature/event-routing"
+    "branch": "feature/improve-process-router"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
