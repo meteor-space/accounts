@@ -5,7 +5,7 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
   },
 
   mixin: [
-    Space.messaging.EventSubscribing,
+    Space.messaging.CommandHandling,
     Space.messaging.EventPublishing
   ],
 
@@ -23,30 +23,29 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
 
   eventSubscriptions() {
     return [{
-      'Space.accounts.SignupInitiated': this._createMeteorUser,
-      'Space.accounts.SignupRetried': this._createMeteorUser
+      'Space.accounts.CreateUser': this._createMeteorUser
     }];
   },
 
-  _createMeteorUser(event) {
+  _createMeteorUser(command) {
     let userData = {
       password: {
-        digest: event.password.toString(),
+        digest: command.password.toString(),
         algorithm: "sha-256"
       }
     };
-    if (event.username) userData.username = event.username.toString();
-    if (event.email) userData.email = event.email.toString();
-    let meta = { signupId: event.sourceId };
+    if (command.username) userData.username = command.username.toString();
+    if (command.email) userData.email = command.email.toString();
+    let meta = event.meta || {};
     try {
       this.accounts.createUser(userData);
       this.publish(new Space.accounts.UserCreated({
-        userId: event.userId,
+        userId: command.userId,
         meta: meta
       }));
     } catch (error) {
       this.publish(new Space.accounts.UserCreationFailed({
-        userId: event.userId,
+        userId: command.userId,
         error: error.message,
         meta: meta
       }));
