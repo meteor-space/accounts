@@ -1,12 +1,27 @@
 Space.messaging.define(Space.messaging.Event, 'Space.accounts', {
 
-  UserCreated: {
+  // SIGNUP
+
+  SignupSuccessful: {
     userId: Guid
   },
 
-  UserCreationFailed: {
+  SignupFailed: {
     userId: Guid,
-    error: String
+    error: Object
+  },
+
+  // LOGIN
+
+  LoginSuccessful: {
+    userId: Guid,
+    type: String
+  },
+
+  LoginFailed: {
+    userId: Guid,
+    error: Object,
+    type: String
   }
 
 });

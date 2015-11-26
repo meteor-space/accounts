@@ -12,7 +12,7 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
   statics: {
     handleUserCreation(options, user) {
       // Assign guids as user ids
-      user._id = new Guid().toString();
+      user._id = options.userId;
       return user;
     }
   },
@@ -21,14 +21,15 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
     Accounts.onCreateUser(_.bind(this.handleUserCreation, this));
   },
 
-  eventSubscriptions() {
+  commandHandlers() {
     return [{
-      'Space.accounts.CreateUser': this._createMeteorUser
+      'Space.accounts.SignupUser': this._createMeteorUser
     }];
   },
 
   _createMeteorUser(command) {
     let userData = {
+      userId: command.targetId.toString(),
       password: {
         digest: command.password.toString(),
         algorithm: "sha-256"
@@ -36,17 +37,26 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
     };
     if (command.username) userData.username = command.username.toString();
     if (command.email) userData.email = command.email.toString();
-    let meta = event.meta || {};
+    let meta = command.meta || {};
+    let error = null;
     try {
       this.accounts.createUser(userData);
-      this.publish(new Space.accounts.UserCreated({
-        userId: command.userId,
+    } catch (accountCreationError) {
+      error = accountCreationError;
+    }
+
+    if (error) {
+      this.publish(new Space.accounts.SignupFailed({
+        userId: command.targetId,
+        error: {
+          code: error.error,
+          message: error.reason
+        },
         meta: meta
       }));
-    } catch (error) {
-      this.publish(new Space.accounts.UserCreationFailed({
-        userId: command.userId,
-        error: error.message,
+    } else {
+      this.publish(new Space.accounts.SignupSuccessful({
+        userId: command.targetId,
         meta: meta
       }));
     }

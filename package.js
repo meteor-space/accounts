@@ -23,19 +23,12 @@ Package.onUse(function(api) {
     'space:messaging@2.1.0'
   ]);
 
-  api.addFiles(['source/client/namespace.js'], 'client');
-  api.addFiles(['source/server/module.js'], 'server');
-
   api.addFiles([
-    'source/shared/api-commands.js'
-  ]);
-
-  api.addFiles([
+    'source/server/module.js',
     'source/server/events.js',
-    // SERVICES
+    'source/server/commands.js',
     'source/server/services/user-creation-service.js',
-    // PUBLISHERS
-    'source/server/publishers/authentication-publisher.js'
+    'source/server/publishers/login-publisher.js'
   ], 'server');
 
 });
