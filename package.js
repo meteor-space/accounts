@@ -17,35 +17,18 @@ Package.onUse(function(api) {
     'accounts-base',
     'accounts-password',
     'check',
-    'space:vo-user@0.2.1',
-    'space:event-sourcing@2.1.0'
-  ]);
-
-  api.addFiles([
-    'source/server/module.coffee',
-    'source/server/commands.coffee',
-    'source/server/events.coffee',
-    // USERS
-    'source/server/users/user.coffee',
-    'source/server/users/users-router.coffee'
-  ], 'server');
-
-});
-
-Package.onTest(function(api) {
-
-  api.use([
-    'coffeescript',
-    'mongo',
+    'ecmascript',
     'underscore',
-    'space:testing@2.0.1',
-    'space:accounts',
-    'space:vo-user@0.2.0',
-    'practicalmeteor:munit@2.1.5',
+    'space:vo-user@0.2.1',
+    'space:messaging@2.1.0'
   ]);
 
   api.addFiles([
-    'tests/users/users.test.coffee'
+    'source/server/module.js',
+    'source/server/events.js',
+    'source/server/commands.js',
+    'source/server/services/user-creation-service.js',
+    'source/server/publishers/login-publisher.js'
   ], 'server');
 
 });
