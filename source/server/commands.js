@@ -1,20 +1,14 @@
 
-Space.accounts.configureCommands = function(configuration) {
-
-  let commandWasNotDefinedYet = Space.accounts.SignupUser === undefined;
-
-  // Define or override existing signup command
-  Space.messaging.Command.extend(Space.accounts, 'SignupUser', {
-    statics: {
-      fields: _.extend(configuration.accounts.signupUserCommand, {
-        targetId: Guid // Meteor.user GUID
-      })
-    }
-  });
-
-  // Only register EJSON type once
-  if (commandWasNotDefinedYet) {
-    Space.accounts.SignupUser.type('Space.accounts.SignupUser');
+// Define or override existing signup command
+Space.messaging.Command.extend(Space.accounts, 'SignupUser', {
+  onExtending() {
+    this.type('Space.accounts.SignupUser');
   }
+});
 
+Space.accounts.configureCommands = function(configuration) {
+  let signupUserCommandConfig = configuration.accounts.signupUserCommand;
+  Space.accounts.SignupUser.fields = _.extend(signupUserCommandConfig, {
+    targetId: Guid // Meteor.user GUID
+  });
 };
