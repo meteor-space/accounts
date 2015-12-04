@@ -1,12 +1,14 @@
 
+// Define or override existing signup command
+Space.messaging.Command.extend(Space.accounts, 'SignupUser', {
+  onExtending() {
+    this.type('Space.accounts.SignupUser');
+  }
+});
+
 Space.accounts.configureCommands = function(configuration) {
-
-  Space.messaging.define(Space.messaging.Command, 'Space.accounts', {
-
-    SignupUser: _.extend(configuration.accounts.signupUserCommand, {
-      targetId: Guid // Meteor.user GUID
-    })
-
+  let signupUserCommandConfig = configuration.accounts.signupUserCommand;
+  Space.accounts.SignupUser.fields = _.extend(signupUserCommandConfig, {
+    targetId: Guid // Meteor.user GUID
   });
-
 };
