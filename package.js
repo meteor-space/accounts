@@ -16,6 +16,8 @@ Package.onUse(function(api) {
     'mongo',
     'accounts-base',
     'accounts-password',
+    'accounts-google',
+    'service-configuration',
     'check',
     'ecmascript',
     'underscore',

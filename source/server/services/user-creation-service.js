@@ -9,16 +9,35 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
     Space.messaging.EventPublishing
   ],
 
-  statics: {
-    handleUserCreation(options, user) {
-      // Assign guids as user ids
-      user._id = options.userId;
-      return user;
-    }
-  },
+  onDependenciesReady() {
+    this.accounts.onCreateUser((options, user) => {
 
-  onExtending() {
-    Accounts.onCreateUser(_.bind(this.handleUserCreation, this));
+      if (user.services !== undefined) {
+
+        if (user.services.google != undefined) {
+
+          user.email = user.services.google.email;
+
+          if (options.profile) {
+            user.profile = options.profile;
+          }
+
+          user._id = new Guid().toString();
+
+          this.publish(new Space.accounts.LoginSuccessful({
+            userId: new Guid(user._id),
+            type: 'Google'
+          }));
+
+        }
+      } else {
+        // Assign guids as user ids
+        user._id = options.userId;
+      }
+
+      return user;
+
+    });
   },
 
   commandHandlers() {
