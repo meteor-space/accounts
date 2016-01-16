@@ -31,7 +31,8 @@ Package.onUse(function(api) {
     'source/server/commands.js',
     'source/server/setup/setup-service-configurations.js',
     'source/server/services/user-creation-service.js',
-    'source/server/publishers/login-publisher.js'
+    'source/server/publishers/login-publisher.js',
+    'source/server/startup.js'
   ], 'server');
 
 });
