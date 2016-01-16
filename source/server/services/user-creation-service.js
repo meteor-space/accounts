@@ -9,26 +9,16 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
     Space.messaging.EventPublishing
   ],
 
-  onDependenciesReady() {
-    this.accounts.onCreateUser((options, user) => {
+  statics: {
+    handleUserCreation(options, user) {
 
       if (user.services !== undefined) {
-
-        if (user.services.google != undefined) {
-
+        if (user.services.google !== undefined) {
           user.email = user.services.google.email;
-
           if (options.profile) {
             user.profile = options.profile;
           }
-
           user._id = new Guid().toString();
-
-          this.publish(new Space.accounts.LoginSuccessful({
-            userId: new Guid(user._id),
-            type: 'Google'
-          }));
-
         }
       } else {
         // Assign guids as user ids
@@ -36,8 +26,11 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
       }
 
       return user;
+    }
+  },
 
-    });
+  onExtending() {
+    Accounts.onCreateUser(_.bind(this.handleUserCreation, this));
   },
 
   commandHandlers() {
@@ -74,6 +67,7 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
         meta: meta
       }));
     } else {
+      console.log("Signup succesful");
       this.publish(new Space.accounts.SignupSuccessful({
         userId: command.targetId,
         meta: meta
