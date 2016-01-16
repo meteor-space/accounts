@@ -19,6 +19,7 @@ Space.accounts = Space.Module.define('Space.accounts', {
 
   onInitialize() {
     Space.accounts.configureCommands(this.configuration);
+    Space.accounts.setupServiceConfigurations();
   }
 
 });
