@@ -17,6 +17,7 @@ Package.onUse(function(api) {
     'accounts-base',
     'accounts-password',
     'accounts-google',
+    'accounts-facebook',
     'service-configuration',
     'check',
     'ecmascript',
