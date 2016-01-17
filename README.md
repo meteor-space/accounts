@@ -16,9 +16,13 @@ Support for user authentication with external services is configured with these 
 
 Available options are 'popup' and 'redirect', if environment variable is not specified it defaults to 'popup'
 
-### Login with Google parameters
-`SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_CLIENT_ID='your-id'`
-`SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_SECRET='your-secret'`
+### Login with Google service parameters
+`SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_CLIENT_ID='your-google-client-id'`
+`SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_SECRET='your-google-secret'`
+
+### Login with Facebook service parameters
+`SPACE_ACCOUNTS_SERVICE_CONFIGURATION_FACEBOOK_APP_ID='your-facebook-app-id'`
+`SPACE_ACCOUNTS_SERVICE_CONFIGURATION_FACEBOOK_SECRET='your-facebook-secret'`
 
 See [Meteor Docs](http://docs.meteor.com/#/full/meteor_loginwithexternalservice) for details.
 
