@@ -50,6 +50,20 @@ describe('LoginType', function() {
 
   });
 
+  describe('login with service check', function() {
+
+    it('returns false if not logging in with service', function() {
+      expect(new LoginType('username').isService()).to.be.false;
+      expect(new LoginType('email').isService()).to.be.false;
+    });
+
+    it('returns true if logging in with service', function() {
+      expect(new LoginType('google').isService()).to.be.true;
+      expect(new LoginType('facebook').isService()).to.be.true;
+    });
+
+  });
+
   describe('immutability', function() {
 
     it('freezes itself', function() {

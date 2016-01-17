@@ -67,7 +67,6 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
         meta: meta
       }));
     } else {
-      console.log("Signup succesful");
       this.publish(new Space.accounts.SignupSuccessful({
         userId: command.targetId,
         meta: meta

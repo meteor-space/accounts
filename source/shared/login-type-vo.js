@@ -29,6 +29,14 @@ LoginType = Space.domain.ValueObject.extend('LoginType', {
     return {
       loginType: String
     };
+  },
+
+  isService() {
+    if (this.loginType === 'username' || this.loginType === 'email') {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 });
