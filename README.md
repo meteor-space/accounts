@@ -20,5 +20,7 @@ Available options are 'popup' and 'redirect', if environment variable is not spe
 `SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_CLIENT_ID='your-id'`
 `SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_SECRET='your-secret'`
 
+See [Meteor Docs](http://docs.meteor.com/#/full/meteor_loginwithexternalservice) for details.
+
 ## License
 Licensed under the MIT license.
