@@ -9,7 +9,7 @@ coming soon …
 
 ## Environment variables for service configurations
 
-Support for user authentication with external services is configured with this environment variables:
+Support for user authentication with external services is configured with these environment variables:
 
 ### Login style for all services
 `SPACE_ACCOUNTS_SERVICE_CONFIGURATION_LOGIN_STYLE='popup'`
