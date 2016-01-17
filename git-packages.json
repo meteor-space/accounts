@@ -14,5 +14,9 @@
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
     "version": "1978ad9b6c40c1cda6030cafb7cc2496b27187e2"
+  },
+  "splendido:accounts-meld": {
+    "git":"https://github.com/splendido/meteor-accounts-meld",
+    "version": "32c143eeb718ee22de0598ff78df434be3ea28e2"
   }
 }
