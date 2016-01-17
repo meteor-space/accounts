@@ -22,9 +22,17 @@ Package.onUse(function(api) {
     'ecmascript',
     'underscore',
     'space:vo-user@0.2.1',
-    'space:messaging@2.1.0'
+    'space:messaging@2.1.0',
+    'space:domain@0.1.0'
   ]);
 
+  // SHARED
+  api.addFiles([
+    // VALUE OBJECTS
+    'source/shared/login-type-vo.js'
+  ]);
+
+  // SERVER
   api.addFiles([
     'source/server/module.js',
     'source/server/events.js',
@@ -34,6 +42,8 @@ Package.onUse(function(api) {
     'source/server/publishers/login-publisher.js',
     'source/server/startup.js'
   ], 'server');
+
+  api.export('LoginType');
 
 });
 
@@ -47,6 +57,7 @@ Package.onTest(function(api) {
     'accounts-google',
     'service-configuration',
     'check',
+    'ejson',
     'ecmascript',
     'underscore',
     'space:vo-user@0.2.1',
@@ -60,4 +71,7 @@ Package.onTest(function(api) {
     'tests/server/accounts.tests.js'
   ], 'server');
 
+  api.addFiles([
+    'tests/shared/login-type-vo.unit.js'
+  ]);
 });
