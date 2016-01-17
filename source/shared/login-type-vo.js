@@ -46,7 +46,7 @@ LoginType.VALID_LOGIN_TYPES = [
   'google',
   'facebook',
   'email',
-  'password'
+  'username'
 ];
 
 LoginType.isValid = function(loginType) {
