@@ -63,6 +63,7 @@ Package.onTest(function(api) {
     'space:vo-user@0.2.1',
     'space:messaging@2.1.0',
     'space:accounts@0.1.3',
+    'space:domain@0.1.0',
     'practicalmeteor:munit@2.1.5',
     'space:testing@2.0.1'
   ]);
