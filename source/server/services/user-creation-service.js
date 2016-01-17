@@ -13,13 +13,28 @@ Space.Object.extend(Space.accounts, 'UserCreationService', {
     handleUserCreation(options, user) {
 
       if (user.services !== undefined) {
+
         if (user.services.google !== undefined) {
+
           user.email = user.services.google.email;
           if (options.profile) {
             user.profile = options.profile;
           }
           user._id = new Guid().toString();
+
+        } else if (user.services.facebook !== undefined) {
+
+          if (user.services.facebook.email) {
+            user.email = user.services.facebook.email;
+          }
+          if (options.profile) {
+            user.profile = options.profile;
+          }
+
         }
+
+        user._id = new Guid().toString();
+
       } else {
         // Assign guids as user ids
         user._id = options.userId;

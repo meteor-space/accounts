@@ -1,9 +1,9 @@
 let env = Space.getenv.multi({
   loginStyle: ['SPACE_ACCOUNTS_SERVICE_CONFIGURATION_LOGIN_STYLE', 'popup', 'string'],
-  googleClientId: ['SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_CLIENT_ID', '', 'string'],
-  googleSecret: ['SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_SECRET', '', 'string'],
-  facebookAppId: ['SPACE_ACCOUNTS_SERVICE_CONFIGURATION_FACEBOOK_APP_ID', '', 'string'],
-  facebookSecret: ['SPACE_ACCOUNTS_SERVICE_CONFIGURATION_FACEBOOK_SECRET', '', 'string']
+  googleClientId: ['SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_CLIENT_ID', '243931874757-815k9jais66lotq0mut9ctqbsmhu5jt2.apps.googleusercontent.com', 'string'],
+  googleSecret: ['SPACE_ACCOUNTS_SERVICE_CONFIGURATION_GOOGLE_SECRET', 'NipyXr0FnEn4RyAQ6ezaXJ1m', 'string'],
+  facebookAppId: ['SPACE_ACCOUNTS_SERVICE_CONFIGURATION_FACEBOOK_APP_ID', '1699023327007320', 'string'],
+  facebookSecret: ['SPACE_ACCOUNTS_SERVICE_CONFIGURATION_FACEBOOK_SECRET', 'baa2b12f03f86ef1aed0836f6152468f', 'string']
 });
 
 let setupGoogleServiceConfiguration = function() {
@@ -25,8 +25,8 @@ let setupFacebookServiceConfiguration = function() {
   if (env.facebookAppId !== '' && env.facebookSecret !== '') {
     ServiceConfiguration.configurations.upsert({service: 'facebook'}, {
       $set: {
-        appId: env.googleClientId,
-        secret: env.googleSecret,
+        appId: env.facebookAppId,
+        secret: env.facebookSecret,
         loginStyle: env.loginStyle
       }
     });
