@@ -10,5 +10,9 @@
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
     "version": "1978ad9b6c40c1cda6030cafb7cc2496b27187e2"
+  },
+  "space:vo-user": {
+    "git":"https://github.com/meteor-space/vo-user",
+    "version": "4478cbb914ced9cd8e91f1491fcb12e64709921f"
   }
 }
