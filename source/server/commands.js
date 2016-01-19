@@ -1,9 +1,7 @@
 
 // Define or override existing signup command
 Space.messaging.Command.extend('Space.accounts.SignupUser', {
-  onExtending() {
-    this.type('Space.accounts.SignupUser');
-  }
+
 });
 
 Space.accounts.configureCommands = function(configuration) {
