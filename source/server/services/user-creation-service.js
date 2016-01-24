@@ -1,4 +1,4 @@
-Space.Object.extend(Space.accounts, 'UserCreationService', {
+Space.Object.extend('Space.accounts.UserCreationService', {
 
   dependencies: {
     accounts: 'Accounts'

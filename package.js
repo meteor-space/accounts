@@ -23,8 +23,8 @@ Package.onUse(function(api) {
     'ecmascript',
     'underscore',
     'space:vo-user@0.2.1',
-    'space:messaging@2.1.0',
-    'space:domain@0.1.0',
+    'space:messaging@3.0.1',
+    'space:domain@0.2.1',
     'splendido:accounts-meld@1.3.1'
   ]);
 

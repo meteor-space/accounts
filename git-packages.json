@@ -1,19 +1,19 @@
 {
   "space:base": {
     "git":"https://github.com/meteor-space/base.git",
-    "version": "80400f278c0ad911b8dee888eca4c54d979f1a1c"
+    "version": "1d99a64fe51904569742aee13e94b3cae29abdb4"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
-    "version": "ffb6de8bacb5fac6b6bd6cb90a85ebe29ddfb6c2"
+    "version": "bbaf57c511f7230c662d2ea4473b056148c82787"
   },
   "space:domain": {
-    "git":"https://github.com/meteor-space/domain.git",
-    "version": "9a138335d5b573fa086d1407a0f9c3cc6cf24922"
+    "git":"https://github.com/meteor-space/domain",
+    "version": "c3915404196c201b3db69effb844b16bc1ceb74a"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
-    "version": "1978ad9b6c40c1cda6030cafb7cc2496b27187e2"
+    "version": "7a404a8cf8e19b1cd0490dac8025c58046fe10b1"
   },
   "splendido:accounts-meld": {
     "git":"https://github.com/splendido/meteor-accounts-meld",

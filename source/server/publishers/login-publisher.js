@@ -1,4 +1,4 @@
-Space.Object.extend(Space.accounts, 'LoginPublisher', {
+Space.Object.extend('Space.accounts.LoginPublisher', {
 
   mixin: [
     Space.messaging.EventPublishing

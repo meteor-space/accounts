@@ -41,9 +41,6 @@ LoginType = Space.domain.ValueObject.extend('LoginType', {
 
 });
 
-// Register as EJSON type
-LoginType.type('LoginType');
-
 LoginType.ERRORS = {
   invalidloginType(loginType) {
     return `Invalid loginType '${loginType}' given.`;
