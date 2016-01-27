@@ -1,18 +1,18 @@
 {
   "space:base": {
     "git":"https://github.com/meteor-space/base.git",
-    "version": "ea63a29ad0e5bb604c8622c9c96132558dd8cd3e"
+    "version": "e67cc6c69e8f8e1f505feae01dec7493b1f1187d"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
-    "version": "ff0dfa578b2fcd39f167f3c51afc6d9ac7011ae3"
+    "version": "bbaf57c511f7230c662d2ea4473b056148c82787"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
-    "version": "1978ad9b6c40c1cda6030cafb7cc2496b27187e2"
+    "version": "53f24417c325500e1b836b88d5f03a17b2d97585"
   },
   "space:vo-user": {
-    "git":"https://github.com/meteor-space/vo-user",
-    "version": "447349eaf3f928051a5cea5e17d994a69981eabc"
+    "git":"https://github.com/meteor-space/vo-user.git",
+    "version": "780d1fc7e1c9a969fe8e1ddae06c86fcf9ca19ff"
   }
 }

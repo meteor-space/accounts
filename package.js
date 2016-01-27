@@ -9,7 +9,7 @@ Package.describe({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom('METEOR@1.0');
+  api.versionsFrom('1.2.0.1');
 
   api.use([
     'coffeescript',
@@ -20,7 +20,7 @@ Package.onUse(function(api) {
     'ecmascript',
     'underscore',
     'space:vo-user@0.2.1',
-    'space:messaging@2.1.0'
+    'space:messaging@3.0.1'
   ]);
 
   api.addFiles([
