@@ -1,4 +1,4 @@
-Space.messaging.define(Space.messaging.Event, 'Space.accounts', {
+Space.messaging.define(Space.domain.Event, 'Space.accounts', {
 
   // SIGNUP
 

@@ -1,6 +1,6 @@
 
 // Define or override existing signup command
-Space.messaging.Command.extend('Space.accounts.SignupUser', {
+Space.domain.Command.extend('Space.accounts.SignupUser', {
 
 });
 
