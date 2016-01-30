@@ -1,18 +1,1 @@
-{
-  "space:base": {
-    "git":"https://github.com/meteor-space/base.git",
-    "branch": "develop"
-  },
-  "space:event-sourcing": {
-    "git": "https://github.com/meteor-space/event-sourcing.git",
-    "branch": "feature/event-routing"
-  },
-  "space:messaging": {
-    "git":"https://github.com/meteor-space/messaging.git",
-    "branch": "develop"
-  },
-  "space:testing": {
-    "git":"https://github.com/meteor-space/testing.git",
-    "branch": "develop"
-  }
-}
+{}
