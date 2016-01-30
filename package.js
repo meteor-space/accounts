@@ -2,7 +2,7 @@
 Package.describe({
   name: 'space:accounts',
   summary: 'Accounts module for Space applications',
-  version: '0.1.3',
+  version: '0.2.0',
   git: 'https://github.com/meteor-space/accounts.git',
   documentation: 'README.md'
 });
@@ -19,7 +19,7 @@ Package.onUse(function(api) {
     'check',
     'ecmascript',
     'underscore',
-    'space:vo-user@0.2.1',
+    'space:vo-user@0.3.0',
     'space:messaging@3.0.1'
   ]);
 
