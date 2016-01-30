@@ -19,8 +19,9 @@ Package.onUse(function(api) {
     'check',
     'ecmascript',
     'underscore',
+    'space:base@4.1.1',
     'space:vo-user@0.3.0',
-    'space:messaging@3.0.1'
+    'space:messaging@3.1.1'
   ]);
 
   api.addFiles([
